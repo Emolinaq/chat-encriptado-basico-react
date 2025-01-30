@@ -11,8 +11,21 @@ export const encryptMessage = (message) => {
 
 // Función para desencriptar un mensaje
 export const decryptMessage = (encryptedMessage) => {
-  const bytes = CryptoJS.AES.decrypt(encryptedMessage, secretKey, { iv });
-  return bytes.toString(CryptoJS.enc.Utf8);
+  try {
+    const bytes = CryptoJS.AES.decrypt(encryptedMessage, secretKey, { iv });
+    const decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+
+    // Si el mensaje no se pudo desencriptar, devuelve el texto original
+    if (!decryptedText) {
+      console.warn('El mensaje no está encriptado o la clave es incorrecta.');
+      return encryptedMessage;
+    }
+
+    return decryptedText;
+  } catch (error) {
+    console.error('Error al desencriptar el mensaje:', error);
+    return encryptedMessage; // Devuelve el texto original si hay un error
+  }
 };
 
 // Función para sanitizar la entrada del usuario
