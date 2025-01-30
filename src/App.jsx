@@ -6,7 +6,15 @@ import EncryptionToggle from './components/EncryptionToggle';
 import './styles.css';
 
 const App = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const savedMessages = localStorage.getItem('chatMessages');
+    return savedMessages ? JSON.parse(savedMessages) : [];
+  });
+  
+  useEffect(() => {
+    localStorage.setItem('chatMessages', JSON.stringify(messages));
+  }, [messages]);
+  
   const [isEncrypted, setIsEncrypted] = useState(false);
   const secretKey = 'mi-clave-secreta'; // Clave secreta para AES
 
