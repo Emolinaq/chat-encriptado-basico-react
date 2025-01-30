@@ -1,21 +1,18 @@
 import React from 'react';
-import CryptoJS from 'crypto-js';
+import { decryptMessage } from '../utils/encryption'; // Importa la función
 
-const MessageList = ({ messages, isEncrypted, secretKey }) => {
-  const handleDecrypt = (encryptedMessage) => {
-    const bytes = CryptoJS.AES.decrypt(encryptedMessage, secretKey);
-    return bytes.toString(CryptoJS.enc.Utf8);
-  };
-
+const MessageList = ({ messages, isEncrypted }) => {
   return (
     <div className="message-list">
       {messages.map((msg, index) => (
         <div key={index} className={`message ${msg.sender}`}>
           <p>
-            {isEncrypted ? handleDecrypt(msg.text) : msg.text}
+            {/* Muestra el mensaje desencriptado si está encriptado */}
+            {isEncrypted ? decryptMessage(msg.text) : msg.text}
           </p>
+          {/* Botón para desencriptar (opcional) */}
           {isEncrypted && (
-            <button onClick={() => alert(handleDecrypt(msg.text))}>
+            <button onClick={() => alert(decryptMessage(msg.text))}>
               Desencriptar
             </button>
           )}

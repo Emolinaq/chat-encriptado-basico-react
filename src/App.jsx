@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'; // Importa useEffect
-import CryptoJS from 'crypto-js';
+import React, { useState, useEffect } from 'react';
+import { encryptMessage, decryptMessage, sanitizeInput } from './utils/encryption'; // Importa las funciones
 import MessageList from './components/MessageList';
 import MessageInput from './components/MessageInput';
 import EncryptionToggle from './components/EncryptionToggle';
@@ -16,32 +16,25 @@ const App = () => {
   }, [messages]);
 
   const [isEncrypted, setIsEncrypted] = useState(false);
-  const secretKey = CryptoJS.enc.Utf8.parse('mi-clave-secreta-avanzada'); // Clave secreta para AES
-  const iv = CryptoJS.enc.Utf8.parse('vector-inicializacion'); // Vector de inicialización
-
   const [username, setUsername] = useState('Usuario');
-
-  const encryptMessage = (message) => {
-    return CryptoJS.AES.encrypt(message, secretKey, { iv }).toString();
-  };
-
-  const decryptMessage = (encryptedMessage) => {
-    const bytes = CryptoJS.AES.decrypt(encryptedMessage, secretKey, { iv });
-    return bytes.toString(CryptoJS.enc.Utf8);
-  };
-
-  const sanitizeInput = (input) => {
-    return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  };
+  const [audio] = useState(new Audio('/notification-sound.mp3'));
 
   const handleSend = (message) => {
-    const sanitizedMessage = sanitizeInput(message);
+    const sanitizedMessage = sanitizeInput(message); 
     const newMessage = {
-      text: isEncrypted ? encryptMessage(sanitizedMessage) : sanitizedMessage,
+      text: isEncrypted ? encryptMessage(sanitizedMessage) : sanitizedMessage, 
       sender: username,
       timestamp: new Date().toLocaleTimeString(),
     };
     setMessages([...messages, newMessage]);
+
+    if (document.hasFocus()) {
+      audio.play().catch((error) => {
+        console.error('Error al reproducir el audio:', error);
+      });
+    }
+
+
   };
 
   const notifyNewMessage = () => {
@@ -56,16 +49,6 @@ const App = () => {
     }
   }, [messages]);
 
-  const playNotificationSound = () => {
-    const audio = new Audio('/notification-sound.mp3');
-    audio.play();
-  };
-
-  useEffect(() => {
-    if (messages.length > 0) {
-      playNotificationSound();
-    }
-  }, [messages]);
 
   return (
     <div className="app">
@@ -74,8 +57,7 @@ const App = () => {
         isEncrypted={isEncrypted}
         onToggle={() => setIsEncrypted(!isEncrypted)}
       />
-      {/* Pasa isEncrypted y secretKey a MessageList */}
-      <MessageList messages={messages} isEncrypted={isEncrypted} secretKey={secretKey} />
+      <MessageList messages={messages} isEncrypted={isEncrypted} />
       <MessageInput onSend={handleSend} username={username} setUsername={setUsername} />
     </div>
   );
