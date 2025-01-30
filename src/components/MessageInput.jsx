@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Button, TextField } from '@mui/material';
 
-const MessageInput = ({ onSend }) => {
+const MessageInput = ({ onSend, username, setUsername }) => {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
@@ -12,13 +13,23 @@ const MessageInput = ({ onSend }) => {
 
   return (
     <div className="message-input">
-      <input
-        type="text"
+      <TextField
+        label="Tu nombre"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Escribe un mensaje..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder="Escribe un mensaje..."
+        fullWidth
+        margin="normal"
       />
-      <button onClick={handleSend}>Enviar</button>
+      <Button variant="contained" onClick={handleSend}>
+        Enviar
+      </Button>
     </div>
   );
 };

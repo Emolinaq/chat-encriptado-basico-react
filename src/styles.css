@@ -58,3 +58,13 @@ body {
 .encryption-toggle {
   margin-bottom: 10px;
 }
+
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    padding: 10px;
+  }
+  .message-input {
+    flex-direction: column;
+  }
+}

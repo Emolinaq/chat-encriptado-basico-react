@@ -9,6 +9,7 @@ const EncryptionToggle = ({ isEncrypted, onToggle }) => {
           type="checkbox"
           checked={isEncrypted}
           onChange={onToggle}
+          aria-label="Encriptar mensajes"
         />
       </label>
     </div>

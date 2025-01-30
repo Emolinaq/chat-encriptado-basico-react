@@ -1,8 +1,6 @@
 import React from 'react';
 import CryptoJS from 'crypto-js';
 
-
-
 const MessageList = ({ messages, isEncrypted, secretKey }) => {
   const handleDecrypt = (encryptedMessage) => {
     const bytes = CryptoJS.AES.decrypt(encryptedMessage, secretKey);
@@ -15,18 +13,17 @@ const MessageList = ({ messages, isEncrypted, secretKey }) => {
         <div key={index} className={`message ${msg.sender}`}>
           <p>
             {isEncrypted ? handleDecrypt(msg.text) : msg.text}
-            </p>
+          </p>
           {isEncrypted && (
-      <button onClick={() => alert(handleDecrypt(msg.text))}>
-        Desencriptar
-      </button>
-    )}
+            <button onClick={() => alert(handleDecrypt(msg.text))}>
+              Desencriptar
+            </button>
+          )}
           <small>{msg.timestamp}</small>
         </div>
       ))}
     </div>
   );
 };
-
 
 export default MessageList;
