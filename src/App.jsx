@@ -98,6 +98,14 @@ const App = () => {
     }
   }, [messages]);
 
+  // Borrar mensajes individualmente
+
+  const handleDeleteMessage = (index) => {
+    const newMessages = messages.filter((_, i) => i !== index);
+    setMessages(newMessages);
+  };
+  
+
   return (
     <div className="app">
       <h1>Encriptador de Mensajes</h1>

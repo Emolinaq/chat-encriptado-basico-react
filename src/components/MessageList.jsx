@@ -1,7 +1,7 @@
 import React from 'react';
 import { decryptMessage } from '../utils/encryption'; // Importa la función
 
-const MessageList = ({ messages, isEncrypted }) => {
+const MessageList = ({ messages, isEncrypted, onDeleteMessage }) => {
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -25,6 +25,7 @@ const MessageList = ({ messages, isEncrypted }) => {
                 Desencriptar
               </button>
             )}
+            <button onClick={() => onDeleteMessage(index)}>Eliminar</button>
             <small>{msg.timestamp}</small>
           </div>
         );
