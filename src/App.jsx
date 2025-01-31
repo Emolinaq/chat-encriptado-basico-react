@@ -92,7 +92,7 @@ const App = () => {
   // Función para notificar nuevos mensajes
   const notifyNewMessage = (message) => {
     if (Notification.permission === 'granted') {
-      new Notification('Nuevo mensaje recibido', {
+      new Notification(`Nuevo mensaje de ${message.sender}`, {
         body: `${message.sender}: ${message.text}`,
       });
     }
