@@ -32,6 +32,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .message strong {
@@ -62,9 +63,30 @@ body {
   cursor: pointer;
 }
 
+.message button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message button:hover {
+  background: #ff1a1a;
+}
 
 .encryption-toggle {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.encryption-toggle span {
+  font-size: 1.5em;
 }
 
 @media (max-width: 600px) {
