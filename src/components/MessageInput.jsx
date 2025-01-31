@@ -5,6 +5,11 @@ const MessageInput = ({ onSend, username, setUsername }) => {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
+    if (!username.trim()) {
+      alert('Por favor, ingresa tu nombre de usuario.');
+      return;
+    }
+
     if (message.trim()) {
       onSend(message);
       setMessage('');
@@ -19,6 +24,7 @@ const MessageInput = ({ onSend, username, setUsername }) => {
         onChange={(e) => setUsername(e.target.value)}
         fullWidth
         margin="normal"
+        placeholder="Ingresa tu nombre"
       />
       <TextField
         label="Escribe un mensaje..."
