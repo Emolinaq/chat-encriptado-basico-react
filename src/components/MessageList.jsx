@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { decryptMessage } from '../utils/encryption'; // Importa la función
 
 const MessageList = ({ messages, isEncrypted, onDeleteMessage }) => {
