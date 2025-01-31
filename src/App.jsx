@@ -133,7 +133,7 @@ const App = () => {
       />
 
       {/* Lista de mensajes */}
-      <MessageList messages={messages} isEncrypted={isEncrypted} />
+      <MessageList messages={messages} isEncrypted={isEncrypted} onDeleteMessage={handleDeleteMessage} />
 
       {/* Entrada de mensajes */}
       <MessageInput onSend={handleSend} username={username} setUsername={setUsername} />
