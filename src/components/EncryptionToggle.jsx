@@ -12,6 +12,7 @@ const EncryptionToggle = ({ isEncrypted, onToggle }) => {
           aria-label="Encriptar mensajes"
         />
       </label>
+      <span>{isEncrypted ? '🔒' : '🔓'}</span>
     </div>
   );
 };
