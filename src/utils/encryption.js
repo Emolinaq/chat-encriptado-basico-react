@@ -1,8 +1,8 @@
 import CryptoJS from 'crypto-js';
 
 // Clave secreta y vector de inicialización (IV)
-const secretKey = CryptoJS.enc.Utf8.parse('mi-clave-secreta-avanzada');
-const iv = CryptoJS.enc.Utf8.parse('vector-inicializacion');
+const secretKey = CryptoJS.enc.Utf8.parse(process.env.REACT_APP_SECRET_KEY);
+const iv = CryptoJS.enc.Utf8.parse(process.env.REACT_APP_KEY_VI);
 
 // Función para encriptar un mensaje
 export const encryptMessage = (message) => {
