@@ -8,6 +8,7 @@ const MessageList = ({ messages, isEncrypted }) => {
         const decryptedText = isEncrypted ? decryptMessage(msg.text) : msg.text;
         return (
           <div key={index} className={`message ${msg.sender}`}>
+            <strong>{msg.sender}:</strong>
             <p>{decryptedText}</p>
             {isEncrypted && (
               <button onClick={() => alert(decryptedText)}>
