@@ -63,12 +63,13 @@ const App = () => {
       alert('Por favor, ingresa tu nombre de usuario.');
       return;
     }
+    const sanitizedUsername = sanitizeInput(username);
     const sanitizedMessage = sanitizeInput(message);
     const encryptedMessage = isEncrypted ? encryptMessage(sanitizedMessage) : sanitizedMessage;
     console.log('Mensaje encriptado:', encryptedMessage); 
     const newMessage = {
       text: encryptedMessage,
-      sender: username,
+      sender: sanitizedUsername,
       timestamp: new Date().toLocaleTimeString(),
     };
     setMessages([...messages, newMessage]);
