@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { encryptMessage, decryptMessage, sanitizeInput } from './utils/encryption';
+import { encryptMessage, sanitizeInput } from './utils/encryption';
 import MessageList from './components/MessageList';
 import MessageInput from './components/MessageInput';
 import EncryptionToggle from './components/EncryptionToggle';
@@ -20,7 +20,7 @@ const App = () => {
     localStorage.removeItem('chatMessages');
     setMessages([]); // Limpiar el estado de mensajes
     console.log('localStorage borrado después de 30 segundos');
-  }, 30000); // 30 segundos
+  }, 60000); // 60 segundos
 
   // Limpiar el timeout si el componente se desmonta
   return () => clearTimeout(timeout);
