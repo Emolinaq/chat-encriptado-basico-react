@@ -51,8 +51,10 @@ const App = () => {
   // Función para enviar mensajes
   const handleSend = (message) => {
     const sanitizedMessage = sanitizeInput(message);
+    const encryptedMessage = isEncrypted ? encryptMessage(sanitizedMessage) : sanitizedMessage;
+    console.log('Mensaje encriptado:', encryptedMessage); 
     const newMessage = {
-      text: isEncrypted ? encryptMessage(sanitizedMessage) : sanitizedMessage,
+      text: encryptedMessage,
       sender: username,
       timestamp: new Date().toLocaleTimeString(),
     };
