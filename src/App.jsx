@@ -57,6 +57,12 @@ const App = () => {
     requestNotificationPermission();
   }, []);
 
+  //Random color para los usuarios.
+  const getRandomColor = () => {
+    const colors = ['#e1ffc7', '#c7e1ff', '#ffc7e1', '#c7ffd8'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
   // Función para enviar mensajes
   const handleSend = (message) => {
     if (!username.trim()) {
@@ -71,6 +77,7 @@ const App = () => {
       text: encryptedMessage,
       sender: sanitizedUsername,
       timestamp: new Date().toLocaleTimeString(),
+      color: getRandomColor(),
     };
     setMessages([...messages, newMessage]);
 
@@ -104,7 +111,9 @@ const App = () => {
     const newMessages = messages.filter((_, i) => i !== index);
     setMessages(newMessages);
   };
-  
+
+
+
 
   return (
     <div className="app">

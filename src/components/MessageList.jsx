@@ -17,7 +17,7 @@ const MessageList = ({ messages, isEncrypted, onDeleteMessage }) => {
       {messages.map((msg, index) => {
         const decryptedText = isEncrypted ? decryptMessage(msg.text) : msg.text;
         return (
-          <div key={index} className={`message ${msg.sender}`}>
+          <div key={index} className="message" style={{ backgroundColor: msg.color }}>
             <strong>{msg.sender}:</strong>
             <p>{decryptedText}</p>
             {isEncrypted && (
