@@ -62,7 +62,7 @@ Nota: Asegúrate de no subir este archivo al repositorio (está incluido en .git
     
 La aplicación estará disponible en http://localhost:3000.
 
-#### Cómo Usar la Aplicación 💻 
+### Cómo Usar la Aplicación 💻 
 Ingresa tu nombre de usuario: Escribe tu nombre en el campo correspondiente.
 
 Envía mensajes: Escribe tu mensaje en el campo de texto y haz clic en "Enviar".
@@ -71,7 +71,7 @@ Encriptación: Activa o desactiva la encriptación usando el interruptor.
 
 Elimina mensajes: Haz clic en el botón "Eliminar" para borrar un mensaje específico.
 
-##### Próximas Mejoras 🚧
+## Próximas Mejoras 🚧
 
 Encriptación de Extremo a Extremo (E2EE): Implementar un sistema donde solo los usuarios autorizados puedan desencriptar los mensajes.
 
@@ -82,11 +82,11 @@ Indicador de Encriptación: Mostrar un ícono o mensaje que indique claramente s
 Modo Oscuro: Agregar soporte para modo oscuro.
 
 
-#### Licencia 📄
+## Licencia 📄
 
 Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](https://chat.deepseek.com/a/chat/s/LICENSE) para más detalles.
 
-#### Contribuir 🤝
+## Contribuir 🤝
 
 ¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto, sigue estos pasos:
 
@@ -100,7 +100,7 @@ Sube tus cambios: git push origin nombre-de-tu-feature.
 
 Abre un Pull Request y describe tus cambios.
 
-###### Estructura del Proyecto 📂
+## Estructura del Proyecto 📂
 
     ```bash
     encriptador-de-mensajes/
