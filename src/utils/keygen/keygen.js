@@ -15,6 +15,6 @@ console.log(`Vector de Inicialización: ${iv}`);
 
 //claves de prueba:
 
-//Clave Secreta: 4f3c2a1b5e6d7f8e9a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p
-//Vector de Inicialización: 1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
+//REACT_APP_SECRET_KEY 4f3c2a1b5e6d7f8e9a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p
+//REACT_APP_KEY_VI 1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
 
