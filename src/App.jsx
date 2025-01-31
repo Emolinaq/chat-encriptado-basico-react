@@ -15,7 +15,16 @@ const App = () => {
   // Guardar mensajes en localStorage
   useEffect(() => {
     localStorage.setItem('chatMessages', JSON.stringify(messages));
-  }, [messages]);
+  // Borrar localStorage después de 30 segundos
+  const timeout = setTimeout(() => {
+    localStorage.removeItem('chatMessages');
+    setMessages([]); // Limpiar el estado de mensajes
+    console.log('localStorage borrado después de 30 segundos');
+  }, 30000); // 30 segundos
+
+  // Limpiar el timeout si el componente se desmonta
+  return () => clearTimeout(timeout);
+}, [messages]);
 
   // Estado para la encriptación
   const [isEncrypted, setIsEncrypted] = useState(false);
