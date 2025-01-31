@@ -19,8 +19,8 @@ const App = () => {
   const timeout = setTimeout(() => {
     localStorage.removeItem('chatMessages');
     setMessages([]); // Limpiar el estado de mensajes
-    console.log('localStorage borrado después de 30 segundos');
-  }, 60000); // 60 segundos
+    console.log('localStorage borrado después de 480 segundos');
+  }, 480000); // 480 segundos
 
   // Limpiar el timeout si el componente se desmonta
   return () => clearTimeout(timeout);
