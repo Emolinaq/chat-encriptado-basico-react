@@ -59,6 +59,10 @@ const App = () => {
 
   // Función para enviar mensajes
   const handleSend = (message) => {
+    if (!username.trim()) {
+      alert('Por favor, ingresa tu nombre de usuario.');
+      return;
+    }
     const sanitizedMessage = sanitizeInput(message);
     const encryptedMessage = isEncrypted ? encryptMessage(sanitizedMessage) : sanitizedMessage;
     console.log('Mensaje encriptado:', encryptedMessage); 
