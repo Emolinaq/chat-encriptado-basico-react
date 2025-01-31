@@ -14,7 +14,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
   text-align: center;
 }
 
@@ -29,31 +29,39 @@ body {
 
 .message {
   background: #e1ffc7;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.message strong {
+  display: block;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .message-input {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
-.message-input input {
-  flex: 1;
-  padding: 5px;
+.message-input input,
+.message-input textarea {
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .message-input button {
-  padding: 5px 10px;
+  padding: 10px;
   background: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+
 
 .encryption-toggle {
   margin-bottom: 10px;
